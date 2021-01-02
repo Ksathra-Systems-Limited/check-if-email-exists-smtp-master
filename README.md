@@ -1,32 +1,27 @@
 # check-if-smtp-email-exists-master
 
-Welcome to GitHub Pages
-You can use the editor on GitHub to maintain and preview the content for your website in Markdown files.
+Use it in your code as follows:
 
-Whenever you commit to this repository, GitHub Pages will run Jekyll to rebuild the pages in your site, from the content in your Markdown files.
+use check_if_email_exists::{check_email, CheckEmailInput};
 
-Markdown
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+async fn check() {
+    // Imagin we want to test the deliverability of someone@gmail.com.
+    let mut input = CheckEmailInput::new(vec!["someone@gmail.com".into()]);
 
-Syntax highlighted code block
+    // Optionally, we can also tweak the configuration parameters used in the
+    // verification.
+    input
+        .from_email("me@example.org".into()) // Used in the `MAIL FROM:` command
+        .hello_name("example.org".into()); // Used in the `EHLO` command
 
-# Header 1
-## Header 2
-### Header 3
+    // Verify this input, using async/await syntax.
+    let result = check_email(&input).await;
 
-- Bulleted
-- List
+    // `result` is a `Vec<CheckEmailOutput>`, where the CheckEmailOutput
+    // struct contains all information about our email.
+    println!("{:?}", result);
+}
+```
+## ✈️ JSON Output
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-For more details see GitHub Flavored Markdown.
-
-Jekyll Themes
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your repository settings. The name of this theme is saved in the Jekyll _config.yml configuration file.
-
-Support or Contact
-Having trouble with Pages? Check out our documentation or contact support and we’ll help you sort it out.
+The output will be a JSON with the below format, the fields should be self-explanatory. For `someone@gmail.com` (note that it is disabled by Gmail);
