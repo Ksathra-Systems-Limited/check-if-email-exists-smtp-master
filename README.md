@@ -4,7 +4,9 @@ Use it in your code as follows:
 
 use check_if_email_exists::{check_email, CheckEmailInput};
 
-async fn check() {
+async fn check() 
+
+{
     // Imagin we want to test the deliverability of someone@gmail.com.
     let mut input = CheckEmailInput::new(vec!["someone@gmail.com".into()]);
 
@@ -23,5 +25,6 @@ async fn check() {
 }
 ```
 ## ✈️ JSON Output
+
 The output will be a JSON with the below format, the fields should be self-explanatory. 
 For `someone@gmail.com` (note that it is disabled by Gmail);
