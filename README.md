@@ -24,4 +24,5 @@ async fn check() {
 ```
 ## ✈️ JSON Output
 
-The output will be a JSON with the below format, the fields should be self-explanatory. For `someone@gmail.com` (note that it is disabled by Gmail);
+The output will be a JSON with the below format, the fields should be self-explanatory. 
+For `someone@gmail.com` (note that it is disabled by Gmail);
