@@ -7,6 +7,7 @@ use check_if_email_exists::{check_email, CheckEmailInput};
 async fn check() 
 
 {
+    
     // Imagin we want to test the deliverability of someone@gmail.com.
     let mut input = CheckEmailInput::new(vec!["someone@gmail.com".into()]);
 
@@ -23,6 +24,7 @@ async fn check()
     // struct contains all information about our email.
     println!("{:?}", result);
 }
+
 ```
 ## ✈️ JSON Output
 
