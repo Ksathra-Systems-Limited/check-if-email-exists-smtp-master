@@ -1,1 +1,1 @@
-# check-if-email-exists-smtp-master
+# check-if-smtp-email-exists-master
